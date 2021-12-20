@@ -1,0 +1,129 @@
+.discount-tag-in-percent {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: #fb8c00;
+    color: #ffffff;
+    padding: 4px 10px;
+    line-height: 1rem;
+    z-index: 1;
+    font-size: 12px;
+    border-radius: 3px;
+  }
+  
+  .out-of-stock {
+    display: inline-block;
+    padding: 6px 4px 5px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fb8c00;
+    color: #ffffff;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 10px;
+    border-radius: 6px;
+  }
+  
+  @media all and (max-width: 480px) {
+  
+  .out-of-stock {
+    
+    left: 42%;
+  }
+  
+  .single-product .product-img {
+    max-height: 150px;
+  }
+  }
+  
+  .product-button {
+    button {
+      padding: 5px 20px;
+      letter-spacing: 0.1em;
+      transition: all 0.3s linear;
+      font-size: 13px;
+      border-radius: 5px;
+      width: 100%;
+      background: #FF1493;
+      color: #ffffff;
+      font-weight: 500;
+    }
+  }
+  
+  .single-product {
+    // border: 2px solid #c1c1c1;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 0px 5px;
+  }
+  .single-product .product-img {
+    position: relative;
+    overflow: hidden;
+    max-height: 180px;
+    min-height: 160px;
+  }
+  
+  .single-product .product-img > a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    max-height: 150px;
+  }
+  
+  .single-product .product-img > a > img {
+    transition: all 0.5s ease-in-out;
+    max-height: 100%;
+    width: auto;
+    max-width: 100%;
+  }
+  
+  .single-product .product-content {
+    padding: 10px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .single-product .product-content > h2 {
+    text-transform: capitalize;
+      margin: 10px auto 0px;
+    font-size: 14px;
+    font-weight: normal;
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .product-price-wp {
+    display: flex;
+    justify-content: center;
+    padding: 8px 0px;
+  }
+  .single-product .product-content .product-price {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 180px;
+  }
+  .single-product .product-content .product-price > .new-price {
+    font-size: 14px;
+    color: #FF1493;
+  
+    &.cut {
+      text-decoration: line-through;
+      color: #363f4d;
+      font-weight: 400;
+      margin-right: 20px;
+    }
+  }
+  
+  .hp-text {
+    a {
+      color: #000000 !important;
+      text-transform: uppercase;
+      font-size: 14px;
+    }
+  }

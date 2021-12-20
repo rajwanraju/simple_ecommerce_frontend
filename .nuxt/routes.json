@@ -1,0 +1,124 @@
+[
+  {
+    "name": "admin",
+    "path": "/admin",
+    "component": "D:\\\\Job Test\\\\Ecommerce_frontend\\\\pages\\\\admin.vue",
+    "chunkName": "pages/admin",
+    "children": [
+      {
+        "name": "admin-login",
+        "path": "login",
+        "component": "D:\\\\Job Test\\\\Ecommerce_frontend\\\\pages\\\\admin\\\\login.vue",
+        "chunkName": "pages/admin/login",
+        "_name": "_77ad6578"
+      }
+    ],
+    "_name": "_fb063696"
+  },
+  {
+    "name": "cart",
+    "path": "/cart",
+    "component": "D:\\\\Job Test\\\\Ecommerce_frontend\\\\pages\\\\cart.vue",
+    "chunkName": "pages/cart",
+    "_name": "_1d442daa"
+  },
+  {
+    "path": "/dashboard",
+    "component": "D:\\\\Job Test\\\\Ecommerce_frontend\\\\pages\\\\dashboard.vue",
+    "chunkName": "pages/dashboard",
+    "children": [
+      {
+        "name": "dashboard",
+        "path": "",
+        "component": "D:\\\\Job Test\\\\Ecommerce_frontend\\\\pages\\\\dashboard\\\\index.vue",
+        "chunkName": "pages/dashboard/index",
+        "_name": "_cf38a670"
+      },
+      {
+        "name": "dashboard-createOrder",
+        "path": "createOrder",
+        "component": "D:\\\\Job Test\\\\Ecommerce_frontend\\\\pages\\\\dashboard\\\\createOrder.vue",
+        "chunkName": "pages/dashboard/createOrder",
+        "_name": "_cc56edb0"
+      },
+      {
+        "name": "dashboard-customers",
+        "path": "customers",
+        "component": "D:\\\\Job Test\\\\Ecommerce_frontend\\\\pages\\\\dashboard\\\\customers\\\\index.vue",
+        "chunkName": "pages/dashboard/customers/index",
+        "_name": "_15b3e257"
+      },
+      {
+        "name": "dashboard-order",
+        "path": "order",
+        "component": "D:\\\\Job Test\\\\Ecommerce_frontend\\\\pages\\\\dashboard\\\\order\\\\index.vue",
+        "chunkName": "pages/dashboard/order/index",
+        "_name": "_8d619a84"
+      },
+      {
+        "name": "dashboard-product",
+        "path": "product",
+        "component": "D:\\\\Job Test\\\\Ecommerce_frontend\\\\pages\\\\dashboard\\\\product\\\\index.vue",
+        "chunkName": "pages/dashboard/product/index",
+        "_name": "_a51b4406"
+      },
+      {
+        "name": "dashboard-product-addProduct",
+        "path": "product/addProduct",
+        "component": "D:\\\\Job Test\\\\Ecommerce_frontend\\\\pages\\\\dashboard\\\\product\\\\addProduct.vue",
+        "chunkName": "pages/dashboard/product/addProduct",
+        "_name": "_564ca8f3"
+      },
+      {
+        "name": "dashboard-product-images",
+        "path": "product/images",
+        "component": "D:\\\\Job Test\\\\Ecommerce_frontend\\\\pages\\\\dashboard\\\\product\\\\images.vue",
+        "chunkName": "pages/dashboard/product/images",
+        "_name": "_fc052046"
+      },
+      {
+        "name": "dashboard-order-id",
+        "path": "order/:id",
+        "component": "D:\\\\Job Test\\\\Ecommerce_frontend\\\\pages\\\\dashboard\\\\order\\\\_id.vue",
+        "chunkName": "pages/dashboard/order/_id",
+        "_name": "_303266b4"
+      }
+    ],
+    "_name": "_6c326b0c"
+  },
+  {
+    "name": "product",
+    "path": "/product",
+    "component": "D:\\\\Job Test\\\\Ecommerce_frontend\\\\pages\\\\product\\\\index.vue",
+    "chunkName": "pages/product/index",
+    "_name": "_71dc2fe6"
+  },
+  {
+    "name": "user-order",
+    "path": "/user/order",
+    "component": "D:\\\\Job Test\\\\Ecommerce_frontend\\\\pages\\\\user\\\\order.vue",
+    "chunkName": "pages/user/order",
+    "_name": "_3e81caee"
+  },
+  {
+    "name": "find-name",
+    "path": "/find/:name?",
+    "component": "D:\\\\Job Test\\\\Ecommerce_frontend\\\\pages\\\\find\\\\_name.vue",
+    "chunkName": "pages/find/_name",
+    "_name": "_4b8f6df7"
+  },
+  {
+    "name": "product-id",
+    "path": "/product/:id",
+    "component": "D:\\\\Job Test\\\\Ecommerce_frontend\\\\pages\\\\product\\\\_id.vue",
+    "chunkName": "pages/product/_id",
+    "_name": "_e3b6ec96"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "D:\\\\Job Test\\\\Ecommerce_frontend\\\\pages\\\\index.vue",
+    "chunkName": "pages/index",
+    "_name": "_510d90b8"
+  }
+]
