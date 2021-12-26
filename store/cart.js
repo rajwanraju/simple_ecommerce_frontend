@@ -1,10 +1,12 @@
 export const state = () => ({
   cartList: [],
-  cartShow:false
+  cartShow: false,
 });
 
 export const mutations = {
   setItemToCart(state, item) {
+ 
+
     state.cartList.push(item);
   },
   showCart(state, payload) {
@@ -13,19 +15,13 @@ export const mutations = {
   incrementItemCount(state, itemIndex) {
     state.cartList[itemIndex].quantity++;
     state.cartList[itemIndex].totalPrice =
-      state.cartList[itemIndex].quantity *
-      (state.cartList[itemIndex].price -
-        state.cartList[itemIndex].discount +
-        state.cartList[itemIndex].vat);
+      state.cartList[itemIndex].quantity * state.cartList[itemIndex].price;
   },
   decreaseItemCount(state, itemIndex) {
     if (state.cartList[itemIndex].quantity > 1) {
       state.cartList[itemIndex].quantity--;
       state.cartList[itemIndex].totalPrice =
-        state.cartList[itemIndex].quantity *
-        (state.cartList[itemIndex].price -
-          state.cartList[itemIndex].discount +
-          state.cartList[itemIndex].vat);
+        state.cartList[itemIndex].quantity * state.cartList[itemIndex].price;
     }
   },
   removeItem(state, index) {
@@ -35,16 +31,18 @@ export const mutations = {
   },
   clearCart(state) {
     state.cartList = [];
-  }
+  },
 };
 
 export const actions = {
   addItemToCart(context, item) {
-    let itemIndex = context.state.cartList.findIndex(element => {
+    let itemIndex = context.state.cartList.findIndex((element) => {
       return element.id == item.id;
     });
+
+
     if (itemIndex > -1) {
-      // item.totalPrice = (item.quantity * item.price);
+      
       context.commit("incrementItemCount", itemIndex);
       context.dispatch(
         "snackbar/successMessage",
@@ -52,7 +50,6 @@ export const actions = {
         { root: true }
       );
     } else {
-      item.totalPrice = item.quantity * item.price;
       context.commit("setItemToCart", item);
       context.dispatch(
         "snackbar/successMessage",
@@ -62,7 +59,7 @@ export const actions = {
     }
   },
   removeFromCart(context, item) {
-    let itemIndex = context.state.cartList.findIndex(element => {
+    let itemIndex = context.state.cartList.findIndex((element) => {
       return element.id == item.id;
     });
     context.commit("removeItem", itemIndex);
@@ -73,13 +70,13 @@ export const actions = {
     );
   },
   increaseItem(context, item) {
-    let index = context.state.cartList.findIndex(element => {
+    let index = context.state.cartList.findIndex((element) => {
       return element.id == item.id;
     });
     context.commit("incrementItemCount", index);
   },
   decreaseItem(context, item) {
-    let index = context.state.cartList.findIndex(element => {
+    let index = context.state.cartList.findIndex((element) => {
       return element.id == item.id;
     });
     context.commit("decreaseItemCount", index);
@@ -87,9 +84,9 @@ export const actions = {
   clearCart(context) {
     context.commit("clearCart");
   },
-  showCart(context,payload) {
-    context.commit("showCart",payload);
-  }
+  showCart(context, payload) {
+    context.commit("showCart", payload);
+  },
 };
 export const getters = {
   getCartList(state) {
@@ -104,17 +101,17 @@ export const getters = {
   },
   getTotalBillAmount(state) {
     return state.cartList
-      .map(item => item.totalPrice)
+      .map((item) => item.totalPrice)
       .reduce((prev, curr) => prev + curr, 0);
   },
   getCartListForOrder(state) {
-    return state.cartList.map(item => {
+    return state.cartList.map((item) => {
       const data = {
         _id: item.id,
         size: "Free Size",
-        quantity: item.quantity
+        quantity: item.quantity,
       };
       return data;
     });
-  }
+  },
 };

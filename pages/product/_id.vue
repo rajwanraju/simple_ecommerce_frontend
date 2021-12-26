@@ -47,16 +47,16 @@
 
             <div class="d-flex align-center">
               <v-chip
-                v-if="productDetails.quantity == 0"
+                v-if="productDetails.stock == 0"
                 label
                 color="error"
                 outlined
                 >Out of Stock</v-chip
               >
-              <template v-if="productDetails.quantity !== 0">
+              <template v-if="productDetails.stock !== 0">
                 <span class="caption">In stock :</span>
                 <v-chip class="ma-2" color="primary" label>
-                  {{ productDetails.quantity }} </v-chip
+                  {{ productDetails.stock }} </v-chip
                 >available
               </template>
             </div>
@@ -67,7 +67,7 @@
                 type="number"
                 style="width: 1.5em"
                 v-model="quantity"
-                :max="productDetails.quantity"
+                :max="productDetails.stock"
                 outlined
                 dense
               ></v-text-field>
@@ -106,9 +106,6 @@ export default {
     VueperSlides,
     VueperSlide,
   },
-  mounted() {
-    // this.categoryName = this.$route.params.id;
-  },
 
   data() {
     return {
@@ -117,6 +114,7 @@ export default {
       mainImage: null,
       productDetails: null,
       selectedSizeStock: null,
+      imageUrl: null,
       thaddedtoImages: false,
       quantity: 1,
       selectedSize: [],
@@ -136,6 +134,7 @@ export default {
     this.mainImage = "http://localhost:9001" + this.productDetails.image;
   },
   mounted() {
+    this.imageUrl = process.env.imageBaseURL
     if (localStorage.isCustomer) {
       this.isCustomer = localStorage.isCustomer;
       this.customer = JSON.parse(localStorage.customer);
@@ -154,12 +153,13 @@ export default {
     },
 
     setItemTocart(item) {
-      this.addToCart(item);
+       item['quantity'] = this.quantity;  
+         this.addToCart(item);
       this.$store.commit("showCart", false);
     },
 
     updateMainImage(item) {
-      this.mainImage = "http://localhost:9001" + item;
+      this.mainImage = this.imageUrl + item;
     },
   },
 };

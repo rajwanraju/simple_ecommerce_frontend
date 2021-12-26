@@ -1,13 +1,8 @@
 <template>
   <v-card>
-    <v-tabs color="primary">
-      <v-tab>Products</v-tab>
-
-      <v-tab-item>
-        <AppProduct />
-      </v-tab-item>
   
-    </v-tabs>
+        <AppProduct />
+
   </v-card>
 </template>
 

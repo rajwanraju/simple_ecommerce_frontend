@@ -41,8 +41,8 @@
               <span>{{ item.address }}</span>
             </template>
 
-            <template v-slot:item.createdAt="{ item }">
-              {{ moment(item.createdAt).format("DD MMM YYYY") }}
+            <template v-slot:item.created_at="{ item }">
+              {{ moment(item.created_at).format("DD MMM YYYY") }}
             </template>
 
             <template v-slot:item.grand_total="{ item }">
@@ -149,17 +149,10 @@ export default {
     filtePanel: false,
     dates: [],
 
-    orderEditPanel: false,
-
     /*Order Status Update*/
     confirmDialog: false,
     confiremed: false,
     orderStatusUpdatedItem: null,
-
-    /*Payment Status Update*/
-    paymentConfirmDialog: false,
-    paymentConfiremed: false,
-    paymentStatusUpdatedItem: null,
 
     getOrderState: false,
     onlineOrderList: [],
@@ -182,7 +175,7 @@ export default {
         filterable: true,
         value: "order_id",
       },
-      { text: "Date", value: "createdAt" },
+      { text: "Date", value: "created_at" },
       { text: "Customer", value: "name" },
       { text: "Amount", value: "grand_total" },
       { text: "Status", value: "status" },

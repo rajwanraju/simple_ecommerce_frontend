@@ -22,6 +22,14 @@
         </v-list-item>
       </template>
       <v-list>
+        <v-list-item @click="$router.push(`/dashboard`)">
+          <v-list-item-action>
+            <v-icon>mdi-account-circle</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>Dashboard </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
         <v-list-item @click="$router.push(`/dashboard/product`)">
           <v-list-item-action>
             <v-icon>mdi-account-circle</v-icon>

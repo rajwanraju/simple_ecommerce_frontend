@@ -213,11 +213,14 @@ export default {
         });
     },
     uploadImage() {
+            const config = {
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+      };
       const url = "/storeImage";
       const payload = {
         image: this.image,
       };
-      this.$axios.$post(url, payload).then((res) => {
+      this.$axios.$post(url, payload,config).then((res) => {
       
         this.product.thumbnail = res.data;
         this.imageEditorModal = false;

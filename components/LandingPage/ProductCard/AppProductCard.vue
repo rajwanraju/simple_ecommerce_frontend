@@ -19,7 +19,7 @@
           </template>
       
       </router-link>
-      <small class="out-of-stock" v-if="product.quantity === 0"
+      <small class="out-of-stock" v-if="product.stock === 0"
         >Out of stock</small
       >
     </div>
@@ -69,6 +69,7 @@ export default {
     }),
 
     addCart(product){
+      product['quantity'] = 1;
       this.addToCart(product);
       this.$store.commit("showCart", false);
     },

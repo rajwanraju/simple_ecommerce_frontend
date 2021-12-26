@@ -1,10 +1,7 @@
 <template>
   <section>
     <div class="cart-icon-wrap" @click="OpenCart">
-       <v-icon
-
-
- 
+      <v-icon
         v-tooltip="{
           content: 'Cart',
           placement: 'bottom-center',
@@ -16,9 +13,9 @@
             hide: 300,
           },
         }"
-       >
-      mdi-cart  
-    </v-icon>
+      >
+        mdi-cart
+      </v-icon>
       <span class="cart-add">{{ getCartCount }}</span>
     </div>
 
@@ -35,27 +32,15 @@
           <div class="box" v-if="getCartItems.length > 0">
             <hr />
 
-            
             <div role="group">
-               <v-row
-      
-        no-gutters
-        style="height: 40px;"
-      >
-        <v-col
-        >
-        
-         <p class="font-weight-bold"> Total</p>
-        
-        </v-col>
-        <v-col
-        >
-         
-           <p class="font-weight-bold">   ৳{{ priceFormate(getTotal) }}</p>
-     
-        </v-col>
-      </v-row>
-          
+              <v-row no-gutters style="height: 40px">
+                <v-col>
+                  <p class="font-weight-bold">Total</p>
+                </v-col>
+                <v-col>
+                  <p class="font-weight-bold">৳{{ priceFormate(getTotal) }}</p>
+                </v-col>
+              </v-row>
 
               <v-btn block color="primary" @click="confirm"
                 >Proceed To Checkout</v-btn
@@ -126,7 +111,6 @@
               ></v-text-field>
             </v-form>
             <v-spacer></v-spacer>
-      
 
             <v-spacer></v-spacer>
             <v-btn
@@ -155,7 +139,7 @@ export default {
   components: {
     AppCartTable,
   },
-    directives: {
+  directives: {
     ClickOutside,
   },
   data: () => ({
@@ -179,11 +163,11 @@ export default {
     signupFormValidation: false,
     usernameRules: [(v) => !!v || "Email Or Phone is required"],
     passwordRules: [(v) => !!v || "Password is required"],
-          errorMessage: null,
-      successMessage: null,
+    errorMessage: null,
+    successMessage: null,
 
-      passwordVisibility: false,
-      loginLoader: false,
+    passwordVisibility: false,
+    loginLoader: false,
   }),
 
   mounted() {
@@ -203,29 +187,18 @@ export default {
     },
 
     getTotal() {
- 
-        var totalAmount = 0;
+      var totalAmount = 0;
 
-        this.getCartItems.map((item) => {
-          totalAmount +=
-            parseInt(item.price) * parseInt(item.quantity);
-        });
+      this.getCartItems.map((item) => {
+        totalAmount += parseInt(item.price) * parseInt(item.quantity);
+      });
 
-        return totalAmount;
-      
-    },
-
-    getFinalBill() {
-      if (this.promoDiscount) {
-        return this.getTotalBillAmount - this.promoDiscount.discount;
-      } else {
-        return this.getTotalBillAmount;
-      }
+      return totalAmount;
     },
   },
   methods: {
     confirm() {
-            var em = this;
+      var em = this;
       if (localStorage.isCustomer) {
         this.$router.push("/cart");
         this.cartView = false;
@@ -240,8 +213,7 @@ export default {
           cancelButtonColor: "#d33",
           confirmButtonText: "Yes, Login Now!",
         }).then((result) => {
-
-          console.log(result)
+          console.log(result);
           if (result.value) {
             em.dialog = true;
           }
@@ -254,44 +226,40 @@ export default {
       this.errorMessage = null;
       this.successMessage = null;
       this.loginLoader = true;
-      /* Payload */
       const data = {
-        phone: this.username,
+        email: this.username,
         password: this.password,
       };
 
       /* API Request */
-      let url = "/agent/signin";
+      let url = "/login";
       let payload = data;
-
       this.$axios
         .$post(url, payload)
         .then((res) => {
+          console.log(res);
           this.successMessage = res.message;
           this.loginLoader = false;
 
+          /* Set Data IN LocalStorage */
+          localStorage.clear();
+          localStorage.setItem("token", res.data.token);
+
+          this.dialog = false;
+
+          localStorage.setItem("isCustomer", true);
+          localStorage.setItem("customer", JSON.stringify(res.data.user));
           this.$cookies.set("isCustomer", true, {
             path: "/",
             maxAge: 60 * 60 * 24 * 7,
           });
-          /* Set Data IN LocalStorage */
-          localStorage.clear();
-          localStorage.setItem("ctoken", res.data.token);
-          localStorage.setItem("isCustomer", true);
-          localStorage.setItem("customer", JSON.stringify(res.data));
 
-          this.dialog = false;
           this.isCustomer = true;
           this.customer = JSON.parse(localStorage.customer);
-          // window.location.replace("/cart");
-          this.$router.push('/cart')
         })
         .catch((err) => {
           this.errorMessage = "Please Enter Valid Credentials";
           this.loginLoader = false;
-          setTimeout(() => {
-            this.errorMessage = null;
-          }, 10000);
         });
     },
     OpenCart() {
@@ -321,7 +289,7 @@ export default {
   margin-right: 18px;
   min-width: 42px;
   height: 42px;
-  border: 1px solid #FF1493;
+  border: 1px solid #ff1493;
   line-height: 42px;
   text-align: center;
   border-radius: 100%;
@@ -341,7 +309,7 @@ export default {
     width: 25px;
     height: 25px;
     line-height: 25px;
-    background: #FF1493;
+    background: #ff1493;
     border-radius: 100%;
     color: #fff;
     cursor: pointer;
@@ -350,7 +318,7 @@ export default {
 
 .vertical-nav {
   min-width: 25rem;
-    width: 25rem;
+  width: 25rem;
   height: 100vh;
   position: fixed;
   top: 0;

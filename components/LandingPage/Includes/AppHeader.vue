@@ -769,7 +769,7 @@ export default {
       this.previewList = [];
       this.showPreviewList = false;
       fetch(
-        "http://localhost:9001/api/search/" +
+        this.$axios.defaults.baseURL+"search/" +
           this.searchByName
       )
         .then((res) => res.json())
